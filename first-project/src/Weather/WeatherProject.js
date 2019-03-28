@@ -4,17 +4,11 @@ import Forecast from './Forecast';
 import OpenWeatherMap from './open-weather-map';
 import LocationButton from './LocationButton';
 import PhotoBackdrop from './PhotoBackdrop';
-import RequestPermission from '../RequestPermission';
 
 export default class WeatherProject extends React.Component {
     constructor(props) {
         super(props);
         this.state = {zip:"", forecast: null};
-    }
-
-    componentDidMount() {
-        RequestPermission.checkPermissions().then(response => { console.log(response) }, 
-                                                  err => { console.log('Error while permission request', err)});
     }
 
     _handleTextChange = event => {
