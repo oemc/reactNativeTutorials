@@ -1,21 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, StatusBar } from 'react-native';
+import CharacterList from './components/CharacterList';
+import CharacterCreate from './components/CharacterCreate';
+import styles from './styles/styles';
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+      <View style={[styles.columnContainer, styles.background]}>
+        <StatusBar hidden/>
+        <CharacterCreate/>
+        <CharacterList/>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
