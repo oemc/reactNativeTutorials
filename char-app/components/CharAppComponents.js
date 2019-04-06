@@ -1,52 +1,44 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight } from 'react-native';
 import styles from '../styles/styles';
 
-class Card extends React.Component {
-    render() {
-        return (
-            <View style={styles.card}>
-                {this.props.children}
+function Card(props) {
+    return (<View style={styles.card}>{props.children}</View>);
+}
+
+function Input(props) {
+    return (
+        <View style={styles.columnContainer}>
+            <Bold><ComplementaryText text={props.title}/></Bold>
+            <TextInput style={styles.input}
+                        onChangeText={props.onChangeText}
+                        onSubmitEditing={props.onSubmitEditing}/>
+        </View>
+    )
+}
+
+function Button(props) {
+    return (
+        <TouchableHighlight style={styles.buttonTouchable}
+                                onPressOut={props.onPress}
+                                accessibilityLabel={props.title}>
+            <View style={styles.button}>
+                <Bold><MainText text={props.title}/></Bold>
             </View>
-        );
-    }
+        </TouchableHighlight>
+    );
 }
 
-class Input extends React.Component {
-    render() {
-        return (
-            <View style={styles.rowContainer}>
-                <Bold><ComplementaryText text={this.props.title + ':'}/></Bold>
-                <TextInput style={styles.input}
-                           onChangeText={this.props.onChangeText}
-                           onSubmitEditing={this.props.onSubmitEditing}/>
-            </View>
-        )
-    }
+function MainText(props) {
+    return (<Text style={[styles.text, styles.mainText]}>{props.text}</Text>);
 }
 
-class MainText extends React.Component {
-    render() {
-        return (
-            <Text style={[styles.text, styles.mainText]}>{this.props.text}</Text>
-        );
-    }
+function ComplementaryText(props) {
+    return (<Text style={[styles.text, styles.complementaryText]}>{props.text}</Text>);
 }
 
-class ComplementaryText extends React.Component {
-    render() {
-        return (
-            <Text style={[styles.text, styles.complementaryText]}>{this.props.text}</Text>
-        );
-    }
+function Bold(props) {
+    return (<Text style={[styles.text, styles.boldText]}>{props.children}</Text>);
 }
 
-class Bold extends React.Component {
-    render() {
-        return (
-            <Text style={[styles.text, styles.boldText]}>{this.props.children}</Text>
-        );
-    }
-}
-
-export { Card, Input, MainText, ComplementaryText, Bold };
+export { Card, Input, Button, MainText, ComplementaryText, Bold };

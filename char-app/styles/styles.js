@@ -2,18 +2,19 @@ import { StyleSheet } from 'react-native';
 
 const mainColor = '#3daa8d';
 const secundaryColor = '#7ea89d'
+const highlightColor = '#21844a'
 const borderColor = '#000000';
 const fontcolor = "#032b21";
 
 const styles = StyleSheet.create({
     background: {
-        backgroundColor: secundaryColor
+        backgroundColor: secundaryColor,
+        flex: 1
     },
     columnContainer: {
-        flex: 1,
         flexDirection: 'column',
-        alignItems: 'flex-end',
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
+        alignItems: 'center'
     },
     rowContainer: {
         flex: 1,
@@ -22,7 +23,6 @@ const styles = StyleSheet.create({
     },
     card: {
         height: 140,
-        flex: 1,
         flexDirection: 'row',
         alignSelf: 'flex-start',
         backgroundColor: mainColor,
@@ -37,12 +37,24 @@ const styles = StyleSheet.create({
         height: 120
     },
     input:{
-        alignSelf: 'flex-start',
         backgroundColor: secundaryColor,
         borderWidth: 1,
         borderColor: borderColor,
         width: 150,
         height: 25
+    },
+    button: {
+        height: 40,
+        width: 200,
+        backgroundColor: highlightColor,
+        borderColor: secundaryColor,
+        borderWidth: 2,
+        borderRadius: 10,
+        alignItems: 'center',
+        flexDirection: 'column'
+    },
+    buttonTouchable: { 
+        borderRadius: 10
     },
     text: {
         color: fontcolor
